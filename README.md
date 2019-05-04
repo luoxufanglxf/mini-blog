@@ -8,7 +8,7 @@
 - 罗旭芳(luoxufanglxf)
 
 #### 项目地址
-<lxf.lihailezzc.com>
+<http://lxf.lihailezzc.com>
 
 #### 项目开发环境
 - Node v10.15.3
