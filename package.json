@@ -1,0 +1,33 @@
+{
+  "name": "mini-blog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:luoxufanglxf/mini-blog.git",
+  "author": "LuoXuFang <1326438353@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "compression": "^1.5.2",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^1.3.2",
+    "cookie-parser": "^1.3.3",
+    "express": "^4.13.3",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.15.3",
+    "express-validator": "^3.2.0",
+    "glob": "^6.0.4",
+    "jade": "^1.11.0",
+    "md5": "^2.2.1",
+    "method-override": "^2.3.0",
+    "moment": "^2.21.0",
+    "mongoose": "^4.1.2",
+    "morgan": "^1.6.1",
+    "nodemailer": "^4.6.2",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "pinyin": "^2.8.3",
+    "serve-favicon": "^2.3.0",
+    "slug": "^0.9.1",
+    "truncate": "^2.0.0"
+  }
+}

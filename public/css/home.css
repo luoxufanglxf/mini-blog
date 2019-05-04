@@ -1,0 +1,46 @@
+.home-bg{
+  widows: 100%;
+  height: 100%;
+  background-image: url('/img/bg.jpg');
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+.front{
+  width: 80%;
+  height: 50%;
+  margin: 0 auto;
+  z-index: 999;
+  position:absolute;
+  left:50%;    /* 定位父级的50% */
+  top:50%;
+  transform: translate(-50%,-50%);
+}
+
+.home-img{
+  width: 100%;
+  height: 40%;
+}
+
+.home-img .img{
+  width: 7em;
+  height: 7em;
+  border: 2px solid #000;
+  border-radius: 50%;
+  background-image: url('/img/avatar.jpg');
+  background-size: cover;
+  margin: 0 auto;
+  transition: all 1s; 
+}
+
+.home-img .img:hover{
+  transform:rotate(360deg);
+}
+
+.home-yan{
+  width: 50%;
+  height: 4em;
+  background-color: #000;
+  opacity: 0.6;
+  margin: 0 auto;
+  border-radius:2em;
+}
