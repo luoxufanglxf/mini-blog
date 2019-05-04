@@ -104,6 +104,7 @@ router.post('/add', auth.requireLogin,function (req, res, next) {
     var title = req.body.title.trim()
     var category = req.body.category.trim()
     var content = req.body.content
+    var imgsrc = req.body.imgsrc
 
     User.findOne({}, function(err,author){
         if (err){
@@ -122,6 +123,7 @@ router.post('/add', auth.requireLogin,function (req, res, next) {
             slug: slug(py),
             category:category,
             content:content,
+            imgsrc: imgsrc,
             author:author,
             published:true,
             meta: { favorite: 0},

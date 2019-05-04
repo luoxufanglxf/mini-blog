@@ -1,5 +1,6 @@
-extends ../layout
-block css
+extends ./layout
+
+append css
   link(rel="stylesheet", href="/css/home.css")
 block content
   .home-bg
@@ -7,4 +8,35 @@ block content
       .home-img
         .img
       .home-yan
+  each post in posts
+    .post.post-every
+      h3.post-title
+        a.post-categorys(href='/category/' + post.category.title) #{post.category.title}
+        a.posttitle(href="/view/" + post.slug , title=post.slug) &nbsp; #{post.title}
+      .post-i
+        if post.imgsrc
+          img.post-img(src= post.imgsrc, alt="post-img")
+        .post-abstract!= truncate(post.content,110)
+      .post-meta
+        span.post-create 
+          i.fa.fa-calendar &nbsp; #{moment(post.created).format('YYYY-MM-DD')}
+        span.post-auther 
+          i.fa.fa-user &nbsp;  #{post.author.name}
+        span.post-comment
+          i.fa.fa-comment &nbsp; #{post.comments.length || 0}
+        span.post-favorite 
+          i.fa.fa-heart &nbsp; #{post.meta.favorite || 0}
+        span.post-link
+          a(href="/view/" + post.slug) 查看全文
+  if pageCount > 1
+    nav
+      ul.pagination
+        - var currentPage = 1
+        while currentPage <= pageCount
+          if (currentPage === pageNum)
+            li.active
+               a(href="/?page=" + currentPage)= currentPage++
+          else
+            li
+               a(href="/?page=" + currentPage)= currentPage++
 

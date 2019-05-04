@@ -1,45 +1,18 @@
 extends ../layout
 
 append css
-  link(rel='stylesheet', href='/components/font-awesome/css/font-awesome.min.css')
   link(rel='stylesheet', href='/css/blog.css')
 block main
   block header
-     .blog-masthead
-       .container
-         .post-icon
-           a(href='https://github.com/MrZhangZc' , target="_blank")
-            i.fa.fa-github 
-           a(href='http://git.oschina.net/zhangzc1' , target="_blank")
-            i.fa.fa-mixcloud
-           a(href='https://twitter.com/Promise_ZZC' , target="_blank")
-            i.fa.fa-twitter
-           a(href='http://www.chengshixinghui.com' , target="_blank")
-            i.fa.fa-star
-         p.blog-title 罗旭芳的NODE全栈博客
-      .blog-body
-        .container
-          .row
-            block about
-            .col-sm-8.blog-main
-              != messages()
-              block content
-            .col-sm-3.col-sm-offset-1.blog-sidebar
-                      .sidebar-module
-                        p.sidebar-module-title 文章分类
-                        ol.list-unstyled
-                          each category in categories
-                            li
-                              a(href='/posts/category/' + category.title , target="_blank") #{category.title}
-                      .sidebar-module
-                        p.sidebar-module-title 链接
-                        ol.list-unstyled
-                          li
-                            a(href='https://github.com/MrZhangZc', target="_blank") GitHub
-                      //- form.navbar-form.pull-right(method="get"  action="/posts/")
-                      //-   input.form-control(type="extx", name="keyword", placeholder="搜索文章")
-                      //-   button(type='submit') 搜索
-            block other
+  .header
+    .left 猫猫
+    .right
+      .shouye 首页
+      .aboutme 关于我
+      .liuyanban 留言板
+      .login 
+        a(href='/admin/users/login') 登录
+  block content
   block footer
     footer.blog-footer
       p blog by zhangzhichao

@@ -103,7 +103,7 @@ block content
         td #{post.comments.length || 0}
         td #{post.published ? '已发布' : '待发布'}
         td
-          a.btn.btn-sm.btn-success(href="/posts/view/" + post._id, target="_blank") 查看
+          a.btn.btn-sm.btn-success(href="/view/" + post._id, target="_blank") 查看
           | &nbsp;&nbsp;
           a.btn.btn-sm.btn-info(href="/admin/posts/edit/" + post._id, target="_blank") 编辑
           | &nbsp;&nbsp;
@@ -113,11 +113,10 @@ block content
     nav
       ul.pagination
         - var currentPage = 1
-        while currentPage < pageCount
+        while currentPage <= pageCount
           if (currentPage === pageNum)
             li.active
                a(href="/admin/posts?page=" + currentPage + "&category=" + filter.category + "&author=" + filter.author + "&sortby=" + sortby + "&sortdir" + sortdir)= currentPage++
           else
             li
                a(href="/admin/posts?page=" + currentPage + "&category=" + filter.category + "&author=" + filter.author +"&sortby=" + sortby + "&sortdir=" + sortdir)= currentPage++
-  script(src="/js/admin/post.js")

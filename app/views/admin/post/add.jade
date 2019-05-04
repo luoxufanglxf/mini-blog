@@ -14,6 +14,10 @@ block content
       input.form-control.input-lg(name="title", required='true',placeholder="请输入标题。。。", value=post.title)
 
     .form-goorp
+      label(for="imgsrc") 图片
+      input.form-control.input-lg(name="imgsrc", required='true',placeholder="请输入图片地址。。。", value=post.imgsrc)
+    
+    .form-goorp
       label(for="category") 分类
       select.form-control.input-lg(name="category",required='true')
         option(value="") - 选择分类 -

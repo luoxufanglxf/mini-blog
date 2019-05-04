@@ -6,7 +6,7 @@ var express = require('express'),
     nodemailer = require('nodemailer')
 
 module.exports = function (app) {
-    app.use('/posts', router);
+  app.use('/', router);
 };
 
 router.get('/', function (req, res, next) {
@@ -34,12 +34,13 @@ router.get('/', function (req, res, next) {
           }
 
           res.render('blog/index', {
+              title: '罗旭芳的mini-blog',
               posts: posts.slice((pageNum -1) * pageSize,pageNum * pageSize),
               pageNum:pageNum,
               pageCount:pageCount
-          })
-      })
-})
+          });
+      });
+});
 
 router.get('/category/:title', function (req, res, next) {
     Category.findOne({title: req.params.title}).exec(function(err,category){
