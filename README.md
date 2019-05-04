@@ -4,21 +4,20 @@
 
 ## 相关
 
-``` bash
-# 项目开发者
-罗旭芳(luoxufanglxf)
+#### 项目开发者
+- 罗旭芳(luoxufanglxf)
 
-# 项目地址
-lxf.lihailezzc.com
+#### 项目地址
+<lxf.lihailezzc.com>
 
-# 项目开发环境
-Node v10.15.3
-Express v4.13.3
-Mongodb v3.4.3
+#### 项目开发环境
+- Node v10.15.3
+- Express v4.13.3
+- Mongodb v3.4.3
 
-#主要技术
-前端：Express Pug
-后端：Git Pm2 Nginx Mongodb 
+#### 主要技术
+- 前端：Express Pug
+- 后端：Git Pm2 Nginx Mongodb 
 
-#设计思路
+#### 设计思路
 俗话说得好：好记性不如烂笔头。工作、学习和生活过程中的点点滴滴、关键知识点都需要记录，并不时拿出来阅读和总结，对过往知识的回顾和总结，为今后工作提供能量。本博客主要记录工作中解决的技术难题、日常系统性复习过程中的相关笔记、以及生活中的点点滴滴。
