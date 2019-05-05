@@ -9,7 +9,7 @@ let config = {
       name: 'miniblog'
     },
     port: process.env.PORT || 6637,
-    db: 'mongodb://csxh_runner:chengshixinghui666@127.0.0.1:27017/miniblog'
+    db: 'mongodb://miniblog_runner:miniblog666@127.0.0.1:27017/miniblog'
   },
   development: {
     root: rootPath, 
