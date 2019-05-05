@@ -90,7 +90,7 @@ router.get('/view/:id', function (req, res, next) {
     })
 })
 
-router.post('/posts/comment/:id', function (req, res, next) {
+router.post('/comment/:id', function (req, res, next) {
     if(!req.body.email){
       return next(new Error('no  email'))
     }
@@ -147,7 +147,7 @@ router.get('/favorite/:id', function (req, res, next) {
       post.meta.favorite = post.meta.favorite ? post.meta.favorite + 1: 1
       post.markModified('meta')
       post.save(function(err){
-        res.redirect('/posts/view/' + post.slug)
+        res.redirect('/view/' + post.slug)
       })
     })
 })

@@ -5,17 +5,17 @@ block content
   each post in posts
     .post
       h3.post-title
-        a(href="/posts/view/" + post.slug, target="_blank") #{post.title}
+        a(href="/view/" + post.slug, target="_blank") #{post.title}
       .post-abstract #{truncate(post.content,150)}
       .post-meta
         span.post-create 发布时间:&nbsp; #{moment(post.created).format('YYYY-MM-DD')}
         span.post-auther 作者:&nbsp; #{post.author.name}
         span.post-category 类别:&nbsp; 
-          a(href='/posts/category/' + post.category.title, target="_black") #{post.category.title}
+          a(href='/category/' + post.category.title, target="_black") #{post.category.title}
         span.post-comment 评论:&nbsp; #{post.comments.length || 0}
         span.post-favorite 被赞:&nbsp; #{post.meta.favorite || 0}
         span.post-link
-          a(href="/posts/view/" + post.slug, target="_blank") 查看全文
+          a(href="/view/" + post.slug, target="_blank") 查看全文
 
 
 

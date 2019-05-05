@@ -5,20 +5,20 @@ append css
 block content
   .view-bg(style="background-image: url(#{post.imgsrc})")
     h1 #{post.title}
-  .post-view
     .post-meta
-      span.post-create
-        i.fa.fa-calendar &nbsp; #{moment(post.created).format('YYYY-MM-DD')}
       span.post-auther 
         i.fa.fa-user &nbsp; #{post.author.name}
+      span.post-create
+        i.fa.fa-calendar &nbsp; #{moment(post.created).format('YYYY-MM-DD')}
       span.post-category 
         i.fa.fa-shopping-basket &nbsp; 
-        a(href='/posts/category/' + post.category.title, target="_black") #{post.category.title}
+        a(href='/category/' + post.category.title, target="_black") #{post.category.title}
       span.post-comment 
         i.fa.fa-comment &nbsp; #{post.comments.length || 0}
       span.post-favorite 
-        a(href='/posts/favorite/' + post._id)
+        a(href='/favorite/' + post._id)
           i.fa.fa-star &nbsp; #{post.meta.favorite || 0}
+  .post-view
     .post-content
       != post.content
 

@@ -14,3 +14,13 @@
     transform: translate(-50%,-50%);
     color: #fff;
 }
+
+.post-meta{
+    z-index: 999;
+    position:absolute;
+    left:50%;    /* 定位父级的50% */
+    top:40%;
+    transform: translate(-50%,-50%);
+    color: #fff;
+    font-size: 1em;
+}
