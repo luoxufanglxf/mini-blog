@@ -56,6 +56,7 @@ router.get('/category/:title', function (req, res, next) {
             return next(err)
         }
         res.render('blog/category', {
+          title: '分类文章',
           posts: posts,
           category:category
         })

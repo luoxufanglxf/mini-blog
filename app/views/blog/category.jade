@@ -1,12 +1,15 @@
-extends layout
+extends ./layout
 
+append css
+  link(rel="stylesheet", href="/css/category.css")
 block content
-  h2.page-header #{category.title} &nbsp;分类下的所有文章&nbsp; #{posts.length}
+  .category-bg
+    h1 #{category.title}
   each post in posts
     .post
       h3.post-title
         a(href="/view/" + post.slug, target="_blank") #{post.title}
-      .post-abstract #{truncate(post.content,150)}
+      .post-abstract!= truncate(post.content,110)
       .post-meta
         span.post-create 发布时间:&nbsp; #{moment(post.created).format('YYYY-MM-DD')}
         span.post-auther 作者:&nbsp; #{post.author.name}
