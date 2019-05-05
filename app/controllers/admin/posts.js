@@ -47,10 +47,10 @@ router.get('/', auth.requireLogin,function (req, res, next) {
         .populate('category')
         .exec(function (err, posts) {
           if (err) return next(err)
-          const pageNum = Math.abs(parseInt(req.query.page || 1, 10))
-          const pageSize = 10
-          const totalCount = posts.length
-          const pageCount = Math.ceil(totalCount / pageSize)
+          let pageNum = Math.abs(parseInt(req.query.page || 1, 10))
+          let pageSize = 10
+          let totalCount = posts.length
+          let pageCount = Math.ceil(totalCount / pageSize)
 
           if(pageNum > pageCount){
             pageNum = pageCount
