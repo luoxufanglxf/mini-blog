@@ -23,10 +23,10 @@ router.get('/', function (req, res, next) {
     .exec(function (err, posts) {
       if (err) return next(err);
 
-    const pageNum = Math.abs(parseInt(req.query.page || 1, 10))
-    const pageSize = 5
-    const totalCount = posts.length
-    const pageCount = Math.ceil(totalCount / pageSize)
+    let pageNum = Math.abs(parseInt(req.query.page || 1, 10))
+    let pageSize = 5
+    let totalCount = posts.length
+    let pageCount = Math.ceil(totalCount / pageSize)
 
     if(pageNum > pageCount){
       pageNum = pageCount
