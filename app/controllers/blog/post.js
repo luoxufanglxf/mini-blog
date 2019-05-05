@@ -112,6 +112,7 @@ router.post('/comment/:id', function (req, res, next) {
       }
 
       const comment = { 
+        nikename: req.body.nikename,
         email: req.body.email, 
         content:req.body.content,
         created: new Date()

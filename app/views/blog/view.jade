@@ -23,24 +23,23 @@ block content
       != post.content
 
     .post-comments
-      h3 用户评论
-      .post-comment-list
-        if post.comments.length
+      if post.comments.length
+        p(style="color:pink") Comments | #{post.comments.length} 条评论
+        .post-comment-list
           each comment in post.comments
             .post-comment
-              h4 #{comment.email}
-                small #{moment(comment.created).format('YYYY-MM-DD')}
-              p #{comment.content}
-        else
-          p.alert.alert-info 还没有评论
+              .post-comment-img
+              .post-comment-info
+                p(style='color: orange;font-size:1.4em;') &nbsp;&nbsp;#{comment.nikename}
+                p(style='color: #ccc;') &nbsp;&nbsp;发布于&nbsp;&nbsp;#{moment(comment.created).format('YYYY-MM-DD HH:mm')}
+              p.post-comment-text #{comment.content}
 
-        form.post-comment-form(action="/posts/comment/" + post._id, method="post", enctype="application/x-www-form-urlencoded")
-          h3 添加评论
-          .form-group
-            label(for="email") 邮箱
-            input.form-control(type="text", name="email", placeholder="请输入邮箱...")
-          .form-group
-            label(for="content") 内容
-            textarea.form-control(type="text", name="content", placeholder="请输入内容...")
-          button.btn.btn-primary 提交
+      form.post-comment-form(action="/comment/" + post._id, method="post", enctype="application/x-www-form-urlencoded")
+        .form-group
+          input.form-nikename(type="text", name="nikename", placeholder="请输入昵称..." required="")
+        .form-group
+          input.form-email(type="text", name="email", placeholder="请输入邮箱..." required="")
+        .form-group
+          textarea.form-text(type="text", name="content", placeholder="请输入内容..." required="")
+        button.form-btn 发表评论
 

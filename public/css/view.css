@@ -18,9 +18,72 @@
 .post-meta{
     z-index: 999;
     position:absolute;
-    left:50%;    /* 定位父级的50% */
+    left:50%;
     top:40%;
     transform: translate(-50%,-50%);
     color: #fff;
     font-size: 1em;
 }
+
+.post-view{
+    width: 50%;
+    margin: 4em auto;
+}
+
+.post-view .post-content{
+    text-indent:2em;
+    line-height: 2em;
+}
+.post-view .post-comments {
+    margin-top: 4em;
+}
+.post-view .post-comment {
+    border-bottom: 1px solid #ccc;
+    margin-top: 3em;
+    padding-bottom: 2em;
+}
+.post-comment-img{
+    width: 4em;
+    height: 4em;
+    background: url('/img/logo.png');
+    float: left;
+}
+.post-comment-text{
+    clear: both;
+    text-indent:1em;
+    margin-top: 2em;
+}
+.post-comment-form{
+    margin-top: 3em;
+    width: 100%;
+}
+.form-nikename{
+    width: 45%;
+    height: 3em;
+    margin-bottom: 2em;
+}
+.form-email{
+    width: 45%;
+    height: 3em;
+    margin-bottom: 2em;
+}
+
+.form-text{
+    width: 100%;
+    height: 10em;
+    margin-bottom: 2em;
+}
+
+.form-btn{
+    width: 100%;
+    height: 4em;
+    background-color: aquamarine;
+    color: #fff;
+}
+
+.form-btn:hover{
+    background-color: #fff;
+    color: orange;
+    border:1px solid orange;
+}
+

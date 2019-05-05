@@ -345,9 +345,6 @@ a{
   font-size: 0.75em
 }
 
-.post-view-header{
-  text-align: center;
-}
 
 .post-meta > span{
   display: inline-block;
@@ -363,18 +360,6 @@ a{
 .post-meta > span:last-of-type{
   margin-right: 0;
   border-right: 0;
-}
-
-.post-view .post-meta{
-  text-align: center;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-  border-bottom: 1px dotted #EEEEEE;
-}
-
-.post-view .post-content{
-  text-indent: 2em;
-  text-align: justify;
 }
 
 .blog-contactMe{
@@ -686,10 +671,6 @@ a{
     font-size: 0.75em
   }
 
-  .post-view-header {
-    text-align: center;
-  }
-
   .post-meta>span {
     display: inline-block;
     padding-right: 10px;
@@ -704,18 +685,6 @@ a{
   .post-meta>span:last-of-type {
     margin-right: 0;
     border-right: 0;
-  }
-
-  .post-view .post-meta {
-    text-align: center;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-    border-bottom: 1px dotted #EEEEEE;
-  }
-
-  .post-view .post-content {
-    text-indent: 2em;
-    text-align: justify;
   }
 
   .blog-contactMe {
