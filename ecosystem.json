@@ -17,8 +17,8 @@
 			"host": ["60.205.212.67"],
 			"port": "22",
 			"ref" : "origin/master",
-			"repo": "git@git.oschina.net:zhangzc1/blogzzc.git",
-			"path": "/www/blogzzc/production",
+			"repo": "git@github.com:luoxufanglxf/mini-blog.git",
+			"path": "/www/mini-blog/production",
 			"ssh_options": "StrictHostKeyChecking=no",
 			"post-deploy": "npm install --registry=https://registry.npm.taobao.org && pm2 startOrRestart ecosystem.json --env production",
 			"env": {

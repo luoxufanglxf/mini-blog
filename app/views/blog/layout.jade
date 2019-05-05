@@ -7,15 +7,17 @@ block main
   .header
     .left 猫猫
     .right
-      .shouye 首页
-      .aboutme 关于我
+      .shouye 
+        a(href='/') 首页
+      .aboutme 
+        a(href='/about') 关于我
       .liuyanban 留言板
       .login 
         a(href='/admin/users/login') 登录
   block content
   block footer
     footer.blog-footer
-      p blog by zhangzhichao
+      p blog by luoxufang
       p
         a(href='#') Back to top
         | &nbsp;&nbsp;&nbsp;&nbsp;

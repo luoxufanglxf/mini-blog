@@ -16,7 +16,7 @@ let config = {
     app: {
       name: 'miniblog'
     },
-    port: process.env.PORT || 3000,
+    port: process.env.PORT || 3003,
     db: 'mongodb://localhost/miniblog-test'
   }
 }

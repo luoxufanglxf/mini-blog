@@ -10,13 +10,13 @@ block content
       .home-yan
   each post in posts
     .post.post-every
-      h3.post-title
+      h4.post-title
         a.post-categorys(href='/category/' + post.category.title) #{post.category.title}
         a.posttitle(href="/view/" + post.slug , title=post.slug) &nbsp; #{post.title}
       .post-i
+        .post-abstract!= truncate(post.content,110)
         if post.imgsrc
           img.post-img(src= post.imgsrc, alt="post-img")
-        .post-abstract!= truncate(post.content,110)
       .post-meta
         span.post-create 
           i.fa.fa-calendar &nbsp; #{moment(post.created).format('YYYY-MM-DD')}
