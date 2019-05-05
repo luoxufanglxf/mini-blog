@@ -23,22 +23,22 @@ router.get('/', function (req, res, next) {
     .exec(function (err, posts) {
       if (err) return next(err);
 
-      var pageNum = Math.abs(parseInt(req.query.page || 1, 10))
-      var pageSize = 5
-      var totalCount = posts.length
-      var pageCount = Math.ceil(totalCount / pageSize)
+    const pageNum = Math.abs(parseInt(req.query.page || 1, 10))
+    const pageSize = 5
+    const totalCount = posts.length
+    const pageCount = Math.ceil(totalCount / pageSize)
 
-      if(pageNum > pageCount){
-        pageNum = pageCount
-      }
+    if(pageNum > pageCount){
+      pageNum = pageCount
+    }
 
-      res.render('blog/index', {
-        title: '罗旭芳的mini-blog',
-        posts: posts.slice((pageNum -1) * pageSize,pageNum * pageSize),
-        pageNum:pageNum,
-        pageCount:pageCount
-      })
+    res.render('blog/index', {
+      title: '罗旭芳的mini-blog',
+      posts: posts.slice((pageNum -1) * pageSize,pageNum * pageSize),
+      pageNum:pageNum,
+      pageCount:pageCount
     })
+  })
 })
 
 router.get('/category/:title', function (req, res, next) {
@@ -68,7 +68,7 @@ router.get('/view/:id', function (req, res, next) {
     return next(new Error('no  post'))
   }
 
-  var conditions = {}
+  let conditions = {}
   try{
     conditions._id = mongoose.Types.ObjectId(req.params.id)
   }catch(err){
@@ -87,7 +87,7 @@ router.get('/view/:id', function (req, res, next) {
           post:post
       })
     })
-});
+})
 
 router.post('/comment/:id', function (req, res, next) {
     if(!req.body.email){
@@ -98,7 +98,7 @@ router.post('/comment/:id', function (req, res, next) {
       return next(new Error('no  content'))
     }
 
-    var conditions = {};
+    let conditions = {}
     try{
       conditions._id = mongoose.Types.ObjectId(req.params.id)
     }catch(err){
@@ -110,7 +110,7 @@ router.post('/comment/:id', function (req, res, next) {
         return next(err)
       }
 
-      var comment = { 
+      const comment = { 
         email: req.body.email, 
         content:req.body.content,
         created: new Date()
@@ -124,15 +124,15 @@ router.post('/comment/:id', function (req, res, next) {
         res.redirect('/posts/view/' + post.slug)
       })
     })
-});
+})
 
 router.get('/favorite/:id', function (req, res, next) {
-  var conditions = {};
+  let conditions = {}
   try{
     conditions._id = mongoose.Types.ObjectId(req.params.id)
   }catch(err){
     conditions.slug = req.params.id
-  };
+  }
   
   Post
     .findOne(conditions)
@@ -149,7 +149,7 @@ router.get('/favorite/:id', function (req, res, next) {
         res.redirect('/posts/view/' + post.slug)
       })
     })
-});
+})
 
 router.post('/comment/contactMe', function (req, res, next) {
 })
@@ -167,23 +167,23 @@ router.post('/contactMe', function (req, res, next) {
 
   function sendEmail() {
     let transporter = nodemailer.createTransport({
-        service: 'qq',
-        auth: {
-            user: '1761997216@qq.com',//user: 'jiayouzzc@126.com',	//   
-            pass: 'jacnlcfehnmudjda'//pass: 'kobe241298'// 
-        }
+      service: 'qq',
+      auth: {
+          user: '1761997216@qq.com',//user: 'jiayouzzc@126.com',	//   
+          pass: 'jacnlcfehnmudjda'//pass: 'kobe241298'// 
+      }
     })
 
-    var mailOptions = {
-        from: '1761997216@qq.com', // 发送者  
-        to: 'jiayouzzc@126.com', // 接受者,可以同时发送多个,以逗号隔开  
-        subject: `博客 留言`, // 标题  
-        //text: 'Hello world', // 文本  
-        html: `
-            <p>姓名:</p><p>${name}</p>
-            <p>邮箱:</p><p>${email}</p>
-            <p>留言内容:</p><p>${content}</p>
-        `
+    const mailOptions = {
+      from: '1761997216@qq.com', // 发送者  
+      to: 'jiayouzzc@126.com', // 接受者,可以同时发送多个,以逗号隔开  
+      subject: `博客 留言`, // 标题  
+      //text: 'Hello world', // 文本  
+      html: `
+          <p>姓名:</p><p>${name}</p>
+          <p>邮箱:</p><p>${email}</p>
+          <p>留言内容:</p><p>${content}</p>
+      `
     }
 
     transporter.sendMail(mailOptions, function (err, info) {
@@ -196,8 +196,6 @@ router.post('/contactMe', function (req, res, next) {
     })
   }
   sendEmail()
-  
-  
+
   res.redirect('/')
-  //req.flash('info', '留言已通过邮箱发送给我，我会即使联系你')
 })

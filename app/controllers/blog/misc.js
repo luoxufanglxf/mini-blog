@@ -1,6 +1,6 @@
-var express = require('express'),
-    router = express.Router();
+const express = require('express')
+const router = express.Router()
 
 module.exports = function (app) {
-    app.use('/', router);
+  app.use('/', router)
 }

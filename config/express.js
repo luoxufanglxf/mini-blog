@@ -1,28 +1,28 @@
-var express = require('express')
-var glob = require('glob')
+const express  = require('express')
+const glob     = require('glob')
 
-var favicon = require('serve-favicon')
-var logger = require('morgan')
-var moment = require('moment')
-var truncate = require('truncate')
-var cookieParser = require('cookie-parser')
-var bodyParser = require('body-parser')
-var compress = require('compression')
-var methodOverride = require('method-override')
-var mongoose = require('mongoose')
-var passport = require('passport')
-var expressValidator = require('express-validator')
+const favicon  = require('serve-favicon')
+const logger   = require('morgan')
+const moment   = require('moment')
+const truncate = require('truncate')
+const cookieParser = require('cookie-parser')
+const bodyParser   = require('body-parser')
+const compress     = require('compression')
+const methodOverride = require('method-override')
+const mongoose = require('mongoose')
+const passport = require('passport')
+const expressValidator = require('express-validator')
 
-var session = require('express-session')
-var MongoStore = require('connect-mongo')(session);
-var flash   = require('connect-flash')
-var messages = require('express-messages')
+const session    = require('express-session')
+const MongoStore = require('connect-mongo')(session);
+const flash      = require('connect-flash')
+const messages   = require('express-messages')
 
-var Category = mongoose.model('Category')
-var User = mongoose.model('User')
+const Category = mongoose.model('Category')
+const User     = mongoose.model('User')
 
 module.exports = function(app, config, connection) {
-  var env = process.env.NODE_ENV || 'development';
+  const env = process.env.NODE_ENV || 'development';
   app.locals.ENV = env;
   app.locals.ENV_DEVELOPMENT = env == 'development';
   
@@ -34,26 +34,26 @@ module.exports = function(app, config, connection) {
     app.locals.moment = moment
     app.locals.truncate = truncate
     Category.find({}).sort('-created').exec(function(err, categories){
-        if(err) {
-          return next(err)
-        }
-        app.locals.categories = categories
-        next()
+      if(err) {
+        return next(err)
+      }
+      app.locals.categories = categories
+      next()
     })
   })
 
   // app.use(favicon(config.root + '/public/img/favicon.ico'));
-  app.use(logger('dev'));
-  app.use(bodyParser.json());
+  app.use(logger('dev'))
+  app.use(bodyParser.json())
   app.use(bodyParser.urlencoded({
     extended: true
-  }));
+  }))
 
   app.use(expressValidator({
     errorFormatter: function(param, msg, value) {
-        var namespace = param.split('.')
-        , root    = namespace.shift()
-        , formParam = root;
+      var namespace = param.split('.')
+      , root    = namespace.shift()
+      , formParam = root
    
       while(namespace.length) {
         formParam += '[' + namespace.shift() + ']';
@@ -62,59 +62,59 @@ module.exports = function(app, config, connection) {
         param : formParam,
         msg   : msg,
         value : value
-      };
+      }
     }
-  }));
+  }))
 
   
-  app.use(cookieParser());
+  app.use(cookieParser())
 
   app.use(session({
-      secret: 'production',
-      resave: false,
-      saveUninitialized: true,
-      cookie: {secure: false},
-      store: new MongoStore({ mongooseConnection: connection })
+    secret: 'production',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {secure: false},
+    store: new MongoStore({ mongooseConnection: connection })
   }))
   app.use(passport.initialize());
   app.use(passport.session());
 
   app.use(function(req, res, next){
-      req.user = null
-      if(req.session.passport && req.session.passport.user){
-          User.findById(req.session.passport.user, function(err, user){
-              if(err) return next(err)
+    req.user = null
+    if(req.session.passport && req.session.passport.user){
+      User.findById(req.session.passport.user, function(err, user){
+        if(err) return next(err)
 
-              user.password = null
-              req.user = user
+        user.password = null
+        req.user = user
 
-              next()
-          })
-      }else{
-              next()
-      }
+        next()
+      })
+    }else{
+      next()
+    }
   })
   app.use(flash())
   app.use(function(req,res,next){
-      res.locals.messages = messages(req,res)
-      app.locals.user     = req.user
-      console.log(req.session, app.locals.user)
-      next()
+    res.locals.messages = messages(req,res)
+    app.locals.user     = req.user
+    console.log(req.session, app.locals.user)
+    next()
   })
-  app.use(compress());
-  app.use(express.static(config.root + '/public'));
-  app.use(methodOverride());
+  app.use(compress())
+  app.use(express.static(config.root + '/public'))
+  app.use(methodOverride())
 
-  var controllers = glob.sync(config.root + '/app/controllers/**/*.js');
+  const controllers = glob.sync(config.root + '/app/controllers/**/*.js')
   controllers.forEach(function (controller) {
-    require(controller)(app);
-  });
+    require(controller)(app)
+  })
 
   app.use(function (req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-  });
+    var err = new Error('Not Found')
+    err.status = 404
+    next(err)
+  })
   
   if(app.get('env') === 'development'){
     app.use(function (err, req, res, next) {
@@ -123,8 +123,8 @@ module.exports = function(app, config, connection) {
         message: err.message,
         error: err,
         title: 'error'
-      });
-    });
+      })
+    })
   }
 
   app.use(function (err, req, res, next) {
@@ -133,8 +133,8 @@ module.exports = function(app, config, connection) {
         message: err.message,
         error: {},
         title: 'error'
-      });
-  });
+      })
+  })
 
-  return app;
+  return app
 };
