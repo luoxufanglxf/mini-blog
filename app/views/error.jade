@@ -1,6 +1,23 @@
-extends layout
-
-block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width',initial-scale=1)
+    link(rel="shortcut  icon" type="image/x-icon" href="/img/favicon.ico" media="screen")
+    link(rel='stylesheet', href='/font-awesome/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/css/error.css')
+    title mini-blog出错啦
+  body
+    .bg
+      <div class = daojisshi>页面将在&nbsp;&nbsp;<span class='lxf'>5</span>&nbsp;&nbsp;秒后自动跳转至网站首页</div>
+    script.
+      let lxf = document.querySelector('.lxf').innerHTML
+      let a=setInterval(daojishi,1000)
+      function daojishi(){
+        lxf--;
+        document.querySelector('.lxf').innerHTML = lxf
+        if(lxf==0){
+          clearInterval(a);
+          window.location.href= '/'
+        }
+      }

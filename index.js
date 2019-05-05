@@ -21,6 +21,6 @@ module.exports = require('./config/express')(app, config, db)
 module.exports = require('./config/passport').init()
 
 app.listen(config.port, function () {
-  console.log('Express server listening on port ' + config.port)
+  console.log('服务成功运行在端口：' + config.port)
 })
 

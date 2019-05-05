@@ -5,15 +5,18 @@ append css
 block main
   block header
   .header
-    .left 猫猫
+    .left
+      img(src="/img/logo.png")
     .right
       .shouye 
         a(href='/') 首页
       .aboutme 
         a(href='/about') 关于我
-      .liuyanban 留言板
+      .liuyanban 
+        a(href='/messageboard') 留言板
       .login 
-        a(href='/admin/users/login') 登录
+        a(href='/admin/users/login')
+          i.fa.fa-user
   block content
   block footer
     footer.blog-footer

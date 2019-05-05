@@ -160,6 +160,12 @@ router.get('/about', function (req, res, next) {
   })
 })
 
+router.get('/messageboard', function (req, res, next) {
+  res.render('blog/messageboard', {
+    title: '留言板'
+  })
+})
+
 router.post('/contactMe', function (req, res, next) {
   let name = req.body.name
   let email = req.body.email
@@ -188,11 +194,11 @@ router.post('/contactMe', function (req, res, next) {
 
     transporter.sendMail(mailOptions, function (err, info) {
       if (err) {
-        console.log(err)
+        console.log('邮件Error:', err)
         return
       }
 
-      console.log('发送成功');
+      console.log('发送成功')
     })
   }
   sendEmail()

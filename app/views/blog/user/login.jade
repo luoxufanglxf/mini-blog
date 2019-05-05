@@ -1,8 +1,13 @@
-extends ../layout_user
+extends ../layout
 
+append css
+  link(rel="stylesheet", href="/css/user.css")
 block content
+  .user-bg
+    h1 登录
   form.form-signin(method="post", action="/admin/users/login")
-    h2.form-signin-heading 罗旭芳登录
+    p.form-signin-heading
+      i.fa.fa-user
       //- small.pull-right
       //-   a(href="/admin/users/register") 注册
     != messages()
@@ -13,4 +18,4 @@ block content
     label.sr-only(for="password") 密码
     input.password.form-control(name="password",type="password", placeholder="请输入密码...", required="", autofocus="")
 
-    button.btn.btn-lg.btn-primary.btn-block(type="submit") 登录
+    button.btn-block(type="submit") 登录

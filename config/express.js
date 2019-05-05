@@ -2,7 +2,6 @@ const express  = require('express')
 const glob     = require('glob')
 
 const favicon  = require('serve-favicon')
-const logger   = require('morgan')
 const moment   = require('moment')
 const truncate = require('truncate')
 const cookieParser = require('cookie-parser')
@@ -43,7 +42,6 @@ module.exports = function(app, config, connection) {
   })
 
   // app.use(favicon(config.root + '/public/img/favicon.ico'));
-  app.use(logger('dev'))
   app.use(bodyParser.json())
   app.use(bodyParser.urlencoded({
     extended: true
@@ -66,9 +64,7 @@ module.exports = function(app, config, connection) {
     }
   }))
 
-  
   app.use(cookieParser())
-
   app.use(session({
     secret: 'production',
     resave: false,
@@ -98,7 +94,6 @@ module.exports = function(app, config, connection) {
   app.use(function(req,res,next){
     res.locals.messages = messages(req,res)
     app.locals.user     = req.user
-    console.log(req.session, app.locals.user)
     next()
   })
   app.use(compress())
