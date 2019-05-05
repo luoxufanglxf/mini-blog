@@ -43,4 +43,10 @@
   opacity: 0.6;
   margin: 0 auto;
   border-radius:2em;
+  line-height: 4em;
+}
+
+.home-yan p {
+  text-align: center;
+  color: #fff;
 }

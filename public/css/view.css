@@ -1,0 +1,16 @@
+.view-bg{
+    widows: 100%;
+    height: 50%;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.view-bg h1 {
+    margin: 0 auto;
+    z-index: 999;
+    position:absolute;
+    left:50%;    /* 定位父级的50% */
+    top:30%;
+    transform: translate(-50%,-50%);
+    color: #fff;
+}

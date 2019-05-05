@@ -84,12 +84,13 @@ router.get('/view/:id', function (req, res, next) {
       }
 
       res.render('blog/view',{
-          post:post
+        title: post.title,
+        post:post
       })
     })
 })
 
-router.post('/comment/:id', function (req, res, next) {
+router.post('/posts/comment/:id', function (req, res, next) {
     if(!req.body.email){
       return next(new Error('no  email'))
     }
@@ -121,7 +122,7 @@ router.post('/comment/:id', function (req, res, next) {
 
       post.save(function(err, post){
         req.flash('info', '评论成功添加')
-        res.redirect('/posts/view/' + post.slug)
+        res.redirect('/view/' + post.slug)
       })
     })
 })

@@ -1,8 +1,11 @@
-extends layout
+extends ./layout
 
+append css
+  link(rel="stylesheet", href="/css/view.css")
 block content
-  h2.page-header.post-view-header #{post.title}
-  .post.post-view
+  .view-bg(style="background-image: url(#{post.imgsrc})")
+    h1 #{post.title}
+  .post-view
     .post-meta
       span.post-create
         i.fa.fa-calendar &nbsp; #{moment(post.created).format('YYYY-MM-DD')}
@@ -21,14 +24,13 @@ block content
 
     .post-comments
       h3 用户评论
-
       .post-comment-list
         if post.comments.length
           each comment in post.comments
-            .post-comment-item
-              h4.post-comment-email #{comment.email}
-                small.pull-right #{moment(comment.created).format('YYYY-MM-DD')}
-              p.post.comment.content #{comment.content}
+            .post-comment
+              h4 #{comment.email}
+                small #{moment(comment.created).format('YYYY-MM-DD')}
+              p #{comment.content}
         else
           p.alert.alert-info 还没有评论
 

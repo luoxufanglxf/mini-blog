@@ -16,11 +16,6 @@ body {
 .post-favorite{
   color: #F78585;
 }
-.post-auther ,
-.post-comment{
-  color: #00A67C;
-}
-post
 a:hover {
 text-decoration: none; 
 }
@@ -382,21 +377,6 @@ a{
   text-align: justify;
 }
 
-.post-comments,
-.post-comment-form{
-    margin-top: 30px;
-}
-
-.post-comment-item{
-  border: 1px solid #000;
-  margin: 20px 0;
-  padding: 10px;
-}
-
-.post-comment-email{
-  border-bottom: 1px dotted #DDDDDD;
-}
-
 .blog-contactMe{
   width: 100%;
   height: 658px;
@@ -736,21 +716,6 @@ a{
   .post-view .post-content {
     text-indent: 2em;
     text-align: justify;
-  }
-
-  .post-comments,
-  .post-comment-form {
-    margin-top: 30px;
-  }
-
-  .post-comment-item {
-    border: 1px dotted #DDDDDD;
-    margin: 20px 0;
-    padding: 10px;
-  }
-
-  .post-comment-email {
-    border-bottom: 1px dotted #DDDDDD;
   }
 
   .blog-contactMe {
