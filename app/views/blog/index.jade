@@ -12,15 +12,17 @@ block content
   each post in posts
     .post.post-every
       h4.post-title
-        a.post-categorys(href='/category/' + post.category.title) #{post.category.title}
         a.posttitle(href="/view/" + post.slug , title=post.slug) &nbsp; #{post.title}
       .post-i
-        .post-abstract!= truncate(post.content,110)
+        .post-abstract!= truncate(post.content,50)
         if post.imgsrc
           img.post-img(src= post.imgsrc, alt="post-img")
       .post-meta
         span.post-create 
           i.fa.fa-calendar &nbsp; #{moment(post.created).format('YYYY-MM-DD')}
+        span.post-category 
+          i.fa.fa-shopping-basket &nbsp; 
+          a(href='/category/' + post.category.title, target="_black") #{post.category.title}
         span.post-auther 
           i.fa.fa-user &nbsp;  #{post.author.name}
         span.post-comment

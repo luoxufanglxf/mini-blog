@@ -50,18 +50,19 @@
 }
 
 .form-control{
-	width: 50%;
+	width: 390px;
 	height: 5em;
 	margin-top: 3em;
 }
 
 .btn-block{
 	margin-top: 3em;
-	width: 50%;
+	width: 390px;
 	height: 5em;
 }
 
 .btn-block:hover{
+	transition: all 1s;
 	background-color: #a94442;
 }
 

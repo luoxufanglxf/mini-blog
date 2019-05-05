@@ -10,6 +10,8 @@ block main
     .right
       .shouye 
         a(href='/') 首页
+      each category in categories
+        a(href='/category/' + category.title) #{category.title}
       .aboutme 
         a(href='/about') 关于我
       .liuyanban 

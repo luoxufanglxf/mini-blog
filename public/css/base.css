@@ -13,7 +13,8 @@ body {font: normal 100% Helvetica, Arial, sans-serif;}
   top: 0;
 }
 .header:hover{
-  background-color: #fff
+  background-color: #fff;
+  transition: all 1s;
 }
 .header .left{
   width: 30%;

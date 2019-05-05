@@ -85,5 +85,6 @@
     background-color: #fff;
     color: orange;
     border:1px solid orange;
+    transition: all 2s;
 }
 
