@@ -1,9 +1,9 @@
 * {margin: 0;padding: 0;list-style: none;text-decoration: none;}
 a {color: #96ADC9;font-size: 1em}
 img {max-width: 100%;}
-a:hover {color: sandybrown;}
+a:hover {color: sandybrown;text-decoration:none;}
 html,body {width: 100%;height: 100%;}
-body {font: normal 100% Helvetica, Arial, sans-serif;}
+body {font: normal 100% Helvetica, Arial, sans-serif;cursor:url(/img/normal.cur),default; }
 .header{
   width: 100%;
   height: 5em;
