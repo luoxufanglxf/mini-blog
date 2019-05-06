@@ -6,7 +6,7 @@ block content
   .view-bg(style="background-image: url(#{post.imgsrc})")
     h1 #{post.title}
     .post-meta
-      span.post-auther 
+      span.post-auther
         i.fa.fa-user &nbsp; #{post.author.name}
       span.post-create
         i.fa.fa-calendar &nbsp; #{moment(post.created).format('YYYY-MM-DD')}

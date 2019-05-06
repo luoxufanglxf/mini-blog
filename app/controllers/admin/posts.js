@@ -57,6 +57,7 @@ router.get('/', auth.requireLogin,function (req, res, next) {
           }
 
           res.render('admin/post/index', {
+            title: '后台管理',
             posts: posts.slice((pageNum -1) * pageSize,pageNum * pageSize),
             pageNum:pageNum,
             pageCount:pageCount,
