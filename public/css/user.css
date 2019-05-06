@@ -81,3 +81,89 @@
 	background-color: #f2dede;
 	border-color: #ebccd1
 }
+
+@media screen and (max-width: 499px) {
+	.user-bg{
+		widows: 100%;
+		height: 50%;
+		background-image: url('/img/bg4.jpg');
+		background-attachment: fixed;
+		background-size: 100% 100%;
+	}
+	
+	.user-bg2{
+		widows: 100%;
+		height: 50%;
+		background-image: url('/img/bg2.jpg');
+		background-attachment: fixed;
+		background-size: 100% 100%;
+	}
+	
+	.user-bg2 h1{
+		margin: 0 auto;
+		z-index: 999;
+		position:absolute;
+		left:50%;    /* 定位父级的50% */
+		top:30%;
+		transform: translate(-50%,-50%);
+		color: #fff;
+	}
+	
+	.user-bg h1 {
+		margin: 0 auto;
+		z-index: 999;
+		position:absolute;
+		left:50%;    /* 定位父级的50% */
+		top:30%;
+		transform: translate(-50%,-50%);
+		color: #fff;
+	}
+	
+	.form-signin p {
+		font-size: 4em;
+	}
+	
+	.form-signin{
+		display: block;
+		width: 80%;
+		height: 300px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		align-items:center;
+		margin-bottom: 6em;
+	}
+	
+	.form-control{
+		width: 80%;
+		height: 5em;
+		margin-top: 3em;
+	}
+	
+	.btn-block{
+		margin-top: 3em;
+		width: 80%;
+		height: 5em;
+	}
+	
+	.btn-block:hover{
+		transition: all 1s;
+		background-color: #a94442;
+	}
+	
+	#messages .error{
+		margin: 0;
+		padding: 0
+	}
+	
+	#messages .error li{
+		list-style: none;
+		padding: 5px;
+		margin-bottom: 10px;
+		border:1px solid transparent;
+		border-radius: 4px;
+		color:#a94442;
+		background-color: #f2dede;
+		border-color: #ebccd1
+	}
+}

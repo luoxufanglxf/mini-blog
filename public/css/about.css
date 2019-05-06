@@ -42,3 +42,50 @@
     margin-top: 1em;
     margin-left: 2em
 }
+
+@media screen and (max-width: 499px) {
+    .about-bg{
+        widows: 100%;
+        height: 50%;
+        background-image: url('/img/bg1.jpg');
+        background-attachment: fixed;
+        background-size: 100% 100%;
+    }
+    
+    .about-bg h1 {
+        margin: 0 auto;
+        z-index: 999;
+        position:absolute;
+        left:50%;
+        top:30%;
+        transform: translate(-50%,-50%);
+        color: #fff;
+    }
+    
+    .introduce{
+        width: 80%;
+        margin: 5em auto;
+    }
+    
+    .introduce-title{
+        width: 100%;
+        height: 4em;
+        background-color: #c2e6fe;
+        text-align: center;
+        line-height: 4em;
+        font-size: 1.3em;
+    }
+    
+    .introduce-connect{
+        width: 100%;
+        height: 20em;
+        background-color: beige;
+        margin-top: 4em;
+        padding-top: 2em
+    }
+    
+    .introduce-connect p{
+        margin-top: 1em;
+        margin-left: 2em
+    }  
+}

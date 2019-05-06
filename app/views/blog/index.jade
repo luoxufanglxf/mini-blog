@@ -10,27 +10,27 @@ block content
       .home-yan
         p 设计成就梦想，细节成就品质
   each post in posts
-    .post.post-every
-      h4.post-title
-        a.posttitle(href="/view/" + post.slug , title=post.slug) &nbsp; #{post.title}
-      .post-i
+    .post
+      .post-every
+        h4.post-title
+          a.posttitle(href="/view/" + post.slug , title=post.slug) &nbsp; #{post.title}
         .post-abstract!= truncate(post.content,50)
-        if post.imgsrc
-          img.post-img(src= post.imgsrc, alt="post-img")
-      .post-meta
-        span.post-create 
-          i.fa.fa-calendar &nbsp; #{moment(post.created).format('YYYY-MM-DD')}
-        span.post-category 
-          i.fa.fa-shopping-basket &nbsp; 
-          a(href='/category/' + post.category.title, target="_black") #{post.category.title}
-        span.post-auther 
-          i.fa.fa-user &nbsp;  #{post.author.name}
-        span.post-comment
-          i.fa.fa-comment &nbsp; #{post.comments.length || 0}
-        span.post-favorite 
-          i.fa.fa-heart &nbsp; #{post.meta.favorite || 0}
-        span.post-link
-          a(href="/view/" + post.slug) 查看全文
+        .post-meta
+          span.post-create 
+            i.fa.fa-calendar &nbsp; #{moment(post.created).format('YYYY-MM-DD')}
+          span.post-category 
+            i.fa.fa-shopping-basket &nbsp; 
+            a(href='/category/' + post.category.title, target="_black") #{post.category.title}
+          span.post-auther 
+            i.fa.fa-user &nbsp;  #{post.author.name}
+          span.post-comment
+            i.fa.fa-comment &nbsp; #{post.comments.length || 0}
+          span.post-favorite 
+            i.fa.fa-heart &nbsp; #{post.meta.favorite || 0}
+          span.post-link
+            a(href="/view/" + post.slug) 查看全文
+      if post.imgsrc
+        img.post-img(src= post.imgsrc, alt="post-img")
   if pageCount > 1
     nav
       ul.pagination
