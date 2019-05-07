@@ -12,6 +12,7 @@ block right
         th 内容
         th ip
         th os
+        th 地址
     tbody
     each message in messagess
       tr
@@ -21,6 +22,7 @@ block right
         td #{message.content}
         td #{message.ip}
         td #{message.os}
+        td #{message.addr}
         //- td
         //-   a.btn.btn-sm.btn-success(href="/posts/category/" + category.title, target="_blank") 查看
         //-   &nbsp;&nbsp;
