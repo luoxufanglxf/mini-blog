@@ -22,3 +22,22 @@ router.get('/', auth.requireLogin,function (req, res, next) {
     })
   })
 })
+
+router.get('/delete/:id', auth.requireLogin , function (req, res, next) {
+  if(!req.params.id){
+    return next(new Error('no message id provided'))
+  }
+
+  Message.remove({ _id: req.params.id}).exec(function(err, rowsRemove){
+    if(err){
+      return next(err)
+    }
+
+    if(rowsRemove){
+      req.flash('success', '文章删除成功')
+    }else{
+      req.flash('success', '文章删除失败')
+    }
+    res.redirect('/admin/message')
+  })
+})
