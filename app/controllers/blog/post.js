@@ -183,26 +183,25 @@ router.get('/messageboard', function (req, res, next) {
 router.post('/message', function (req, res, next) {
   const ip = req.headers['x-real-ip']
   const os = req.headers['user-agent']
-  getIpInfo(ip,function(result){
+  getIpInfo(ip , result =>{
     console.log(result)
-    // const message = new Message({
-    //   nikename: req.body.nikename,
-    //   email: req.body.email,
-    //   content: req.body.content,
-    //   ip: ip,
-    //   os: os,
-    //   addr: result.city,
-    //   created: new Date()
-    // })
-    // message.save( function(err, user){
-    //   if(err){
-    //     return err
-    //   }else{
-    //     res.redirect('/messageboard')
-    //   }
-    // })
+    const message = new Message({
+      nikename: req.body.nikename,
+      email: req.body.email,
+      content: req.body.content,
+      ip: ip,
+      os: os,
+      addr: result.city,
+      created: new Date()
+    })
+    message.save( function(err, user){
+      if(err){
+        console.log(err)
+      }else{
+        res.redirect('/messageboard')
+      }
+    })
   })
-  res.redirect('/messageboard')
   // let conditions = {}
   // try{
   //   conditions._id = mongoose.Types.ObjectId(req.params.id)
