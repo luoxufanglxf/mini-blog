@@ -3,6 +3,7 @@ const router = express.Router()
 const mongoose = require('mongoose')
 const Post = mongoose.model('Post')
 const Category = mongoose.model('Category')
+const Message = mongoose.model('Message')
 const nodemailer = require('nodemailer')
 
 module.exports = function (app) {
@@ -164,9 +165,72 @@ router.get('/about', function (req, res, next) {
 })
 
 router.get('/messageboard', function (req, res, next) {
-  res.render('blog/messageboard', {
-    title: '留言板'
+  Message
+    .find({})
+    .sort('created')
+    .exec(function(err,messages){
+      if(err){
+          return next(err)
+      }
+      res.render('blog/messageboard', {
+        title: '留言板',
+        messages: messages
+      })
   })
+})
+let getClientIp = function (req) {
+  return req.headers['x-forwarded-for'] ||
+      req.connection.remoteAddress ||
+      req.socket.remoteAddress ||
+      req.connection.socket.remoteAddress || '';
+}
+router.post('/message', function (req, res, next) {
+  const os = req.headers['user-agent']
+  let ip = getClientIp(req).match(/\d+.\d+.\d+.\d+/)
+  ip = ip ? ip.join('.') : null
+
+  const message = new Message({
+    nikename: req.body.nikename,
+    email: req.body.email,
+    content: req.body.content,
+    ip: ip,
+    os: os,
+    created: new Date()
+  })
+  message.save( function(err, user){
+    if(err){
+      return err
+    }else{
+      res.redirect('/messageboard')
+    }
+  })
+  // let conditions = {}
+  // try{
+  //   conditions._id = mongoose.Types.ObjectId(req.params.id)
+  // }catch(err){
+  //   conditions.slug = req.params.id
+  // }
+  
+  // Post.findOne(conditions).exec(function(err,post){
+  //   if(err){
+  //     return next(err)
+  //   }
+
+  //   const comment = { 
+  //     nikename: req.body.nikename,
+  //     email: req.body.email, 
+  //     content:req.body.content,
+  //     created: new Date()
+  //   }
+
+  //   post.comments.unshift(comment)
+  //   post.markModified('comments')
+
+  //   post.save(function(err, post){
+  //     req.flash('info', '评论成功添加')
+  //     res.redirect('/view/' + post.slug)
+  //   })
+  // })
 })
 
 router.post('/contactMe', function (req, res, next) {

@@ -11,3 +11,11 @@ block content
       p 欢迎来到本博客，能来的都是稀客，随便坐，随便看
       p 当然如果对本博有好的建议欢迎与我交流
       p 最后，再次非常感谢各位的来访。
+  form.post-comment-form(action="/message/", method="post", enctype="application/x-www-form-urlencoded")
+    .form-group
+      input.form-nikename(type="text", name="nikename", placeholder="请输入昵称..." required="")
+    .form-group
+      input.form-email(type="text", name="email", placeholder="请输入邮箱..." required="")
+    .form-group
+      textarea.form-text(type="text", name="content", placeholder="请输入内容..." required="")
+    button.form-btn 发表评论

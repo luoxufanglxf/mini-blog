@@ -1,0 +1,29 @@
+extends layout
+
+block right
+  h2 留言管理
+
+  table.table
+    thead
+      tr
+        th 昵称
+        th 邮箱
+        th 时间
+        th 内容
+        th ip
+        th os
+    tbody
+    each message in messagess
+      tr
+        td #{message.nikename}
+        td #{message.email}
+        td #{moment(message.created).format('YYYY-MM-DD HH:mm:ss')}
+        td #{message.content}
+        td #{message.ip}
+        td #{message.os}
+        //- td
+        //-   a.btn.btn-sm.btn-success(href="/posts/category/" + category.title, target="_blank") 查看
+        //-   &nbsp;&nbsp;
+        //-   a.btn.btn-sm.btn-info(href="/admin/categories/edit/" + category._id, target="_blank") 编辑
+        //-   &nbsp;&nbsp;
+        //-   a.btn.btn-sm.btn-danger(href="/admin/categories/delete/" + category._id,) 删除

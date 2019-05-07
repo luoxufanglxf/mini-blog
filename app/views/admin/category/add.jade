@@ -1,7 +1,7 @@
 extends ../layout
 
 block right
-  h2.page.header 添加分类
+  h2 添加分类
 
   if errors && errors.length
     .errors
@@ -14,5 +14,3 @@ block right
       input.form-control.input-lg(name="title", required='true',placeholder="请输入名字。。。", value=category.title)
 
     button.btn.btn-lg.btn-info(type="submit") 确认添加
-
-

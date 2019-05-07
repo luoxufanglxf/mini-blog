@@ -6,7 +6,6 @@ const pinyin   = require('pinyin')
 const auth     = require('./users')
 const Post     = mongoose.model('Post')
 const User     = mongoose.model('User')
-const Category = mongoose.model('Category')
 
 module.exports = function (app) {
   app.use('/admin/posts', router)

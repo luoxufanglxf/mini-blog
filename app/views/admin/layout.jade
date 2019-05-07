@@ -33,6 +33,10 @@ block content
           a(href='/admin/categories/add') 
             i.fa.fa-plus
             | &nbsp;添加分类
+        li(class={active: pageName === "/admin/message"})
+          a(href='/admin/message')
+            i.fa.fa-plus
+            | &nbsp;留言管理
       != messages()
     .back-right
       block right
