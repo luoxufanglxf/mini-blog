@@ -5,6 +5,7 @@ const Post = mongoose.model('Post')
 const Category = mongoose.model('Category')
 const Message = mongoose.model('Message')
 const nodemailer = require('nodemailer')
+const getIpInfo = require('../../../public/js/getUserInfo')
 
 module.exports = function (app) {
   app.use('/', router)
@@ -178,17 +179,11 @@ router.get('/messageboard', function (req, res, next) {
       })
   })
 })
-let getClientIp = function (req) {
-  return req.headers['x-forwarded-for'] ||
-      req.connection.remoteAddress ||
-      req.socket.remoteAddress ||
-      req.connection.socket.remoteAddress || '';
-}
-router.post('/message', function (req, res, next) {
-  const os = req.headers['user-agent']
-  let ip = getClientIp(req).match(/\d+.\d+.\d+.\d+/)
-  ip = ip ? ip.join('.') : null
 
+router.post('/message', function (req, res, next) {
+  const ip = req.headers['x-real-ip']
+  const os = req.headers['user-agent']
+  
   const message = new Message({
     nikename: req.body.nikename,
     email: req.body.email,

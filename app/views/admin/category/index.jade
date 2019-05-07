@@ -17,6 +17,6 @@ block right
         td #{category.slug}
         td #{moment(category.created).format('YYYY-MM-DD HH:mm:ss')}
         td
-          a.btn.btn-sm.btn-success(href="/posts/category/" + category.title, target="_blank") 查看 &nbsp;&nbsp;
+          a.btn.btn-sm.btn-success(href="/category/" + category.title, target="_blank") 查看 &nbsp;&nbsp;
           a.btn.btn-sm.btn-info(href="/admin/categories/edit/" + category._id, target="_blank") 编辑 &nbsp;&nbsp;
           a.btn.btn-sm.btn-danger(href="/admin/categories/delete/" + category._id,) 删除
