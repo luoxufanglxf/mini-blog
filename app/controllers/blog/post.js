@@ -5,7 +5,6 @@ const Post = mongoose.model('Post')
 const Category = mongoose.model('Category')
 const Message = mongoose.model('Message')
 const nodemailer = require('nodemailer')
-const getIpInfo = require('../../../public/js/getUserInfo')
 
 module.exports = function (app) {
   app.use('/', router)
@@ -181,54 +180,19 @@ router.get('/messageboard', function (req, res, next) {
 })
 
 router.post('/message', function (req, res, next) {
-  const ip = req.headers['x-real-ip']
-  const os = req.headers['user-agent']
-  getIpInfo(ip , result =>{
-    console.log(result)
-    const message = new Message({
-      nikename: req.body.nikename,
-      email: req.body.email,
-      content: req.body.content,
-      ip: ip,
-      os: os,
-      addr: result.city,
-      created: new Date()
-    })
-    message.save( function(err, user){
-      if(err){
-        console.log(err)
-      }else{
-        res.redirect('/messageboard')
-      }
-    })
+  const message = new Message({
+    nikename: req.body.nikename,
+    email: req.body.email,
+    content: req.body.content,
+    created: new Date()
   })
-  // let conditions = {}
-  // try{
-  //   conditions._id = mongoose.Types.ObjectId(req.params.id)
-  // }catch(err){
-  //   conditions.slug = req.params.id
-  // }
-  
-  // Post.findOne(conditions).exec(function(err,post){
-  //   if(err){
-  //     return next(err)
-  //   }
-
-  //   const comment = { 
-  //     nikename: req.body.nikename,
-  //     email: req.body.email, 
-  //     content:req.body.content,
-  //     created: new Date()
-  //   }
-
-  //   post.comments.unshift(comment)
-  //   post.markModified('comments')
-
-  //   post.save(function(err, post){
-  //     req.flash('info', '评论成功添加')
-  //     res.redirect('/view/' + post.slug)
-  //   })
-  // })
+  message.save( function(err, user){
+    if(err){
+      console.log(err)
+    }else{
+      res.redirect('/messageboard')
+    }
+  })
 })
 
 router.post('/contactMe', function (req, res, next) {

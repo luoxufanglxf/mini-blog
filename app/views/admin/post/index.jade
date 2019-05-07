@@ -76,7 +76,6 @@ block right
             a(href="/admin/posts?page=" + pageNum + '&sortby=created&sortdir=desc') 添加时间
         th 被赞
         th 评论
-        th 内容
         th
           if sortby === 'published'
             if (sortdir === 'desc')
@@ -100,7 +99,6 @@ block right
         td #{moment(post.created).format('YYYY-MM-DD HH:mm:ss')}
         td #{post.meta.favorites || 0}
         td #{post.comments.length || 0}
-        td #{JSON.stringify(post.comments)}
         td #{post.published ? '已发布' : '待发布'}
         td
           a.btn.btn-sm.btn-success(href="/view/" + post._id, target="_blank") 查看
