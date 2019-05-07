@@ -183,15 +183,15 @@ router.get('/messageboard', function (req, res, next) {
 router.post('/message', function (req, res, next) {
   const ip = req.headers['x-real-ip']
   const os = req.headers['user-agent']
-  getIpInfo(ip,function(res){
-    console.log(res)
+  getIpInfo(ip,function(result){
+    console.log(result)
     const message = new Message({
       nikename: req.body.nikename,
       email: req.body.email,
       content: req.body.content,
       ip: ip,
       os: os,
-      addr: res.city,
+      addr: result.city,
       created: new Date()
     })
     message.save( function(err, user){
