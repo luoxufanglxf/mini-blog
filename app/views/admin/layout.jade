@@ -16,26 +16,26 @@ block content
   .container-bank
     .back-left
       ul.nav-sidebar
-        li(class={active: pageName === "/admin/posts"})
-          a(href='/admin/posts')
+        li
+          a(class={active: pageName === "/admin/posts"}, href='/admin/posts')
             i.fa.fa-files-o
             | &nbsp;文章列表 
             span.sr-only (current)
-        li(class={active: pageName === "/admin/posts/add"})
-          a(href='/admin/posts/add') 
+        li
+          a(class={active: pageName === "/admin/posts/add"}, href='/admin/posts/add') 
             i.fa.fa-file-o
             | &nbsp;添加文章
-        li(class={active: pageName === "/admin/categories"})
-          a(href='/admin/categories') 
+        li
+          a(class={active: pageName === "/admin/categories"}, href='/admin/categories') 
             i.fa.fa-th-list
             | &nbsp;分类列表
-        li(class={active: pageName === "/admin/categories/add"})
-          a(href='/admin/categories/add') 
+        li
+          a(class={active: pageName === "/admin/categories/add"}, href='/admin/categories/add') 
             i.fa.fa-plus
             | &nbsp;添加分类
-        li(class={active: pageName === "/admin/message"})
-          a(href='/admin/message')
-            i.fa.fa-plus
+        li
+          a(class={active: pageName === "/admin/message"}, href='/admin/message')
+            i.fa.fa-commenting
             | &nbsp;留言管理
       != messages()
     .back-right

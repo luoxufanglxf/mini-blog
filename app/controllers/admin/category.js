@@ -13,11 +13,13 @@ module.exports = function (app) {
 
 router.get('/', auth.requireLogin,function (req, res, next) {
   res.render('admin/category/index', {
+    title:'分类列表'
   })
 })
 
 router.get('/add', auth.requireLogin,function (req, res, next) {
   res.render('admin/category/add', {
+    title:'添加分类',
     action: "/admin/categories/add",
     category:{ _id: ''}
   })

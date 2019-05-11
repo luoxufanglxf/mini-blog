@@ -1,7 +1,7 @@
 extends ../layout
 
 block right
-  table.table.table-bordered
+  table.table
     thead
       tr
         th(width="30%")
@@ -71,7 +71,7 @@ block right
     each post in posts
       tr
         td
-          a(href="/posts/view/" + post._id, target="_blank") #{post.title}
+          a(href="/view/" + post._id, target="_blank") #{post.title}
         td #{post.category.title}
         td #{post.author.email}
         td #{moment(post.created).format('YYYY-MM-DD HH:mm:ss')}

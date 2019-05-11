@@ -1,29 +1,28 @@
 extends ../layout
 
 block right
-  h2 添加文章
   if errors && errors.length
     .errors
       each error in errors
         p.alert.alert-danger #{error.msg}
   form.vertical-form(method="post", action=action)
     .form-goorp
-      label(for="title") 标题
-      input.form-control.input-lg(name="title", required='true',placeholder="请输入标题。。。", value=post.title)
+      label(for="title") 标题:
+      input.form-control.input-lg(name="title", required='true',placeholder="请输入标题", value=post.title)
     .form-goorp
-      label(for="imgsrc") 图片
-      input.form-control.input-lg(name="imgsrc", required='true',placeholder="请输入图片地址。。。", value=post.imgsrc)
+      label(for="imgsrc") 图片:
+      input.form-control.input-lg(name="imgsrc", required='true',placeholder="请输入图片地址", value=post.imgsrc)
     .form-goorp
-      label(for="category") 分类
+      label(for="category") 分类:
       select.form-control.input-lg(name="category",required='true')
         option(value="") - 选择分类 -
         each category in categories
           option(value=category._id, selected=(category._id.toString() === post.category._id.toString())) #{category.title}
     .form-goorp
-      label(for="content") 内容
+      label(for="content") 内容:
       textarea#js-post-content.form-control(name="content", required='true') #{post.content}
     
-    button.btn.btn-lg.btn-info(type="submit")= post ? "保存修改" : "发布"
+    button.btnsub(type="submit")= post ? "保存修改" : "发布"
 
     script(src="/js/ckeditor/ckeditor.js")
     script.

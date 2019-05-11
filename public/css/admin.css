@@ -37,6 +37,9 @@
   height: 50em;
   background-color: antiquewhite;
 }
+.back-right{
+  width: 80%;
+}
 
 .back-left ul {
   width: 10em;
@@ -71,6 +74,59 @@ table tr:nth-child(odd){
 
 table tr:nth-child(even){
   background: #F5FAFA;
+}
+
+.table{
+  margin: 3em
+}
+.active{
+  color: orchid;
+}
+.vertical-form{
+  margin-top: 3em;
+  margin-left: 7em;
+}
+.form-goorp{
+  margin-top: 1em;
+}
+label{
+  font-size: 1.4em;
+  margin-bottom: .5em;
+}
+input,select{
+  box-sizing: border-box;
+  text-align:center;
+  font-size:1.4em;
+  height:1.4em;
+  border-radius:4px;
+  border:1px solid #c8cccf;
+  color:#6a6f77;
+  -web-kit-appearance:none;
+  -moz-appearance: none;
+  display:block;
+  outline:0;
+  padding:0 1em;
+  text-decoration:none;
+}
+input:focus{
+  border:1px solid #ff7496;
+}
+.btnsub{
+  background:#24150E;
+  border: none;
+  color: white;
+  font-family:Arial;
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin-top: 2em;
+  cursor: pointer;
+}
+.btnsub:hover{
+  background-color: #DEF0D8;
+  color:#000;
 }
 /* 
 body {

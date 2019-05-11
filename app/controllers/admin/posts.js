@@ -56,7 +56,7 @@ router.get('/', auth.requireLogin,function (req, res, next) {
           }
 
           res.render('admin/post/index', {
-            title: '后台管理',
+            title: '文章列表',
             posts: posts.slice((pageNum -1) * pageSize,pageNum * pageSize),
             pageNum:pageNum,
             pageCount:pageCount,
@@ -75,6 +75,7 @@ router.get('/', auth.requireLogin,function (req, res, next) {
 
 router.get('/add', auth.requireLogin,function (req, res, next) {
   res.render('admin/post/add', {
+    title: '添加文章',
     action: "/admin/posts/add",
     post: {
       category:{ _id: ''}
