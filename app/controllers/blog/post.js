@@ -167,7 +167,7 @@ router.get('/about', function (req, res, next) {
 router.get('/messageboard', function (req, res, next) {
   Message
     .find({})
-    .sort('created')
+    .sort({created:-1})
     .exec(function(err,messages){
       if(err){
           return next(err)
@@ -188,7 +188,7 @@ router.post('/message', function (req, res, next) {
   })
   message.save( function(err, user){
     if(err){
-      console.log(err)
+
     }else{
       res.redirect('/messageboard')
     }

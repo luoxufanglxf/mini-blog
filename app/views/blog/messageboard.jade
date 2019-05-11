@@ -5,17 +5,26 @@ append css
 block content
   .board-bg
     h1 留言板
-  .board
-    .board-title 欢迎光临我的博客
-    .board-connect
-      p 欢迎来到本博客，能来的都是稀客，随便坐，随便看
-      p 当然如果对本博有好的建议欢迎与我交流
-      p 最后，再次非常感谢各位的来访。
-  form.post-comment-form(action="/message/", method="post", enctype="application/x-www-form-urlencoded")
-    .form-group
-      input.form-nikename(type="text", name="nikename", placeholder="请输入昵称..." required="")
-    .form-group
-      input.form-email(type="text", name="email", placeholder="请输入邮箱..." required="")
-    .form-group
-      textarea.form-text(type="text", name="content", placeholder="请输入内容..." required="")
-    button.form-btn 发表评论
+  each message in messages
+    .post
+      .post-info
+        .post-h
+        p.nikename #{message.nikename} 
+        p.date #{moment(message.created).format('YYYY-MM-DD')}
+      .post-content
+        p.content #{message.content}
+  form.smart-green(action="/message/" method="post" ,enctype="application/x-www-form-urlencoded")
+    h1 我要留言
+      span 留下你想对我说的话
+    label
+      span 你的名字 :
+      input#name(type="text" name="nikename" placeholder="")
+    label
+      span 你的邮箱 :
+      input#email(type="email" name="email" placeholder="")
+    label
+      span 留言内容 :
+      textarea#message(name="content" placeholder="")
+    label
+      span &nbsp;
+      button.button 留言
